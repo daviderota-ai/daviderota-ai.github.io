@@ -114,7 +114,7 @@
         .hero-photo {
             width: 180px;
             height: 180px;
-            border-radius: 50%;
+            border-radius: 8px;
             border: 5px solid white;
             box-shadow: 0 8px 24px rgba(0,0,0,0.2);
             margin-bottom: 1.5rem;
@@ -359,7 +359,7 @@
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
             margin-top: 2rem;
         }
@@ -471,6 +471,16 @@
             .hero-photo {
                 width: 150px;
                 height: 150px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -975,6 +985,7 @@
             </p>
             
             <div class="contact-grid">
+                <!-- Row 1: Email, Phone, LinkedIn -->
                 <div class="contact-item">
                     <strong>📧 Email:</strong>
                     <a href="mailto:daviderota.tech@gmail.com">daviderota.tech@gmail.com</a>
@@ -988,11 +999,8 @@
                     <strong>💼 LinkedIn:</strong>
                     <a href="https://linkedin.com/in/daviderota-ai" target="_blank">linkedin.com/in/daviderota-ai</a>
                 </div>
-                <div class="contact-item">
-                    <strong data-lang="en">🌐 Website:</strong>
-                    <strong data-lang="it">🌐 Sito Web:</strong>
-                    <a href="https://daviderota-ai.github.io" target="_blank">daviderota-ai.github.io</a>
-                </div>
+                
+                <!-- Row 2: Location, Availability, Website -->
                 <div class="contact-item">
                     <strong data-lang="en">📍 Location:</strong>
                     <strong data-lang="it">📍 Posizione:</strong>
@@ -1004,6 +1012,11 @@
                     <strong data-lang="it">✅ Disponibilità:</strong>
                     <span style="color: var(--success-color); font-weight: 600;" data-lang="en">Immediate</span>
                     <span style="color: var(--success-color); font-weight: 600;" data-lang="it">Immediata</span>
+                </div>
+                <div class="contact-item">
+                    <strong data-lang="en">🌐 Website:</strong>
+                    <strong data-lang="it">🌐 Sito Web:</strong>
+                    <a href="https://daviderota-ai.github.io" target="_blank">daviderota-ai.github.io</a>
                 </div>
             </div>
 
