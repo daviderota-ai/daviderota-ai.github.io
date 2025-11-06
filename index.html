@@ -44,35 +44,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 4px;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: var(--primary-color);
-            border-radius: 2px;
-            transition: all 0.3s;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
         }
 
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary-color);
+            z-index: 1002;
         }
 
         .nav-links {
@@ -100,7 +78,6 @@
             padding: 0.5rem 1rem;
             background: var(--bg-light);
             border-radius: 2rem;
-            cursor: pointer;
         }
 
         .lang-toggle button {
@@ -112,11 +89,43 @@
             font-weight: 600;
             transition: all 0.3s;
             color: var(--text-dark);
+            font-size: 0.9rem;
         }
 
         .lang-toggle button.active {
             background: var(--primary-color);
             color: white;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 0.5rem;
+            background: none;
+            border: none;
+            z-index: 1002;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
         }
 
         .hero {
@@ -472,35 +481,44 @@
             }
 
             .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                max-width: 300px;
                 background: var(--white);
                 flex-direction: column;
                 gap: 0;
-                padding: 0;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
+                padding: 5rem 0 2rem;
+                box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+                transition: right 0.3s ease;
+                overflow-y: auto;
+                z-index: 1001;
             }
 
             .nav-links.active {
-                max-height: 400px;
+                right: 0;
             }
 
             .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links li:not(:has(.lang-toggle)) {
                 border-bottom: 1px solid var(--border-color);
             }
 
-            .nav-links a {
+            .nav-links li a {
                 display: block;
                 padding: 1rem 2rem;
+                width: 100%;
             }
 
             .nav-links .lang-toggle {
-                margin: 1rem 2rem;
+                margin: 1.5rem 2rem;
+                width: calc(100% - 4rem);
+                justify-content: center;
             }
 
             .hero h1 {
@@ -526,6 +544,10 @@
 
             .contact-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .logo {
+                font-size: 1.2rem;
             }
         }
 
@@ -561,26 +583,46 @@
         }
 
         [data-lang="it"] { display: none; }
-        .lang-it [data-lang="en"] { display: none; }
-        .lang-it [data-lang="it"] { display: block; }
+        body.lang-it [data-lang="en"] { display: none; }
+        body.lang-it [data-lang="it"] { display: block; }
+
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-overlay.active {
+            display: block;
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
+    <div class="mobile-overlay" id="mobileOverlay" onclick="closeMenu()"></div>
+    
     <nav>
         <div class="nav-container">
             <div class="logo">Davide Rota</div>
-            <div class="hamburger" onclick="toggleMenu()">
+            <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home" data-lang="en" onclick="closeMenu()">Home</a><a href="#home" data-lang="it" onclick="closeMenu()">Home</a></li>
-                <li><a href="#about" data-lang="en" onclick="closeMenu()">About</a><a href="#about" data-lang="it" onclick="closeMenu()">Profilo</a></li>
-                <li><a href="#experience" data-lang="en" onclick="closeMenu()">Experience</a><a href="#experience" data-lang="it" onclick="closeMenu()">Esperienza</a></li>
-                <li><a href="#skills" data-lang="en" onclick="closeMenu()">Skills</a><a href="#skills" data-lang="it" onclick="closeMenu()">Competenze</a></li>
-                <li><a href="#education" data-lang="en" onclick="closeMenu()">Education</a><a href="#education" data-lang="it" onclick="closeMenu()">Formazione</a></li>
-                <li><a href="#contact" data-lang="en" onclick="closeMenu()">Contact</a><a href="#contact" data-lang="it" onclick="closeMenu()">Contatti</a></li>
+                <li><a href="#home" onclick="closeMenu()" data-lang="en">Home</a><a href="#home" onclick="closeMenu()" data-lang="it">Home</a></li>
+                <li><a href="#about" onclick="closeMenu()" data-lang="en">About</a><a href="#about" onclick="closeMenu()" data-lang="it">Profilo</a></li>
+                <li><a href="#experience" onclick="closeMenu()" data-lang="en">Experience</a><a href="#experience" onclick="closeMenu()" data-lang="it">Esperienza</a></li>
+                <li><a href="#skills" onclick="closeMenu()" data-lang="en">Skills</a><a href="#skills" onclick="closeMenu()" data-lang="it">Competenze</a></li>
+                <li><a href="#education" onclick="closeMenu()" data-lang="en">Education</a><a href="#education" onclick="closeMenu()" data-lang="it">Formazione</a></li>
+                <li><a href="#contact" onclick="closeMenu()" data-lang="en">Contact</a><a href="#contact" onclick="closeMenu()" data-lang="it">Contatti</a></li>
                 <li class="lang-toggle">
                     <button onclick="setLanguage('en')" id="lang-en" class="active">EN</button>
                     <button onclick="setLanguage('it')" id="lang-it">IT</button>
@@ -1041,7 +1083,6 @@
             </p>
             
             <div class="contact-grid">
-                <!-- Row 1: Email, Phone, LinkedIn -->
                 <div class="contact-item">
                     <strong>📧 Email:</strong>
                     <a href="mailto:daviderota.tech@gmail.com">daviderota.tech@gmail.com</a>
@@ -1056,7 +1097,6 @@
                     <a href="https://linkedin.com/in/daviderota-ai" target="_blank">linkedin.com/in/daviderota-ai</a>
                 </div>
                 
-                <!-- Row 2: Location, Availability, Website -->
                 <div class="contact-item">
                     <strong data-lang="en">📍 Location:</strong>
                     <strong data-lang="it">📍 Posizione:</strong>
@@ -1096,12 +1136,30 @@
     <script>
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
+            const overlay = document.getElementById('mobileOverlay');
+            const hamburger = document.getElementById('hamburger');
+            
             navLinks.classList.toggle('active');
+            overlay.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            
+            // Prevent body scroll when menu is open
+            if (navLinks.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
         }
 
         function closeMenu() {
             const navLinks = document.getElementById('navLinks');
+            const overlay = document.getElementById('mobileOverlay');
+            const hamburger = document.getElementById('hamburger');
+            
             navLinks.classList.remove('active');
+            overlay.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.style.overflow = '';
         }
 
         function setLanguage(lang) {
@@ -1117,6 +1175,25 @@
                 localStorage.setItem('language', 'en');
             }
         }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.getElementById('hamburger');
+            const navContainer = document.querySelector('.nav-container');
+            
+            if (navLinks.classList.contains('active') && 
+                !navContainer.contains(event.target)) {
+                closeMenu();
+            }
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeMenu();
+            }
+        });
 
         window.addEventListener('DOMContentLoaded', function() {
             const savedLang = localStorage.getItem('language');
