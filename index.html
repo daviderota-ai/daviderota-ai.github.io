@@ -117,7 +117,7 @@
             border-radius: 50%;
             border: 5px solid white;
             box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             object-fit: cover;
         }
 
@@ -132,6 +132,28 @@
             margin-bottom: 1rem;
             opacity: 0.95;
             font-weight: 500;
+        }
+
+        .hero-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-link {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        .hero-link:hover {
+            opacity: 1;
+            text-decoration: underline;
         }
 
         .hero p {
@@ -505,6 +527,10 @@
         <div class="hero-content">
             <img src="davide_rota.jpg" alt="Davide Rota" class="hero-photo">
             <h1>Davide Rota</h1>
+            <div class="hero-links">
+                <a href="https://linkedin.com/in/daviderota-ai" class="hero-link" target="_blank">💼 LinkedIn</a>
+                <a href="https://daviderota-ai.github.io" class="hero-link">🌐 daviderota-ai.github.io</a>
+            </div>
             <div class="subtitle" data-lang="en">Administrative Manager | Operations & Business Support</div>
             <div class="subtitle" data-lang="it">Responsabile Amministrativo | Operazioni e Supporto Aziendale</div>
             
@@ -883,6 +909,8 @@
                     <p style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--text-light);">
                         Credential: W7U5L4RTAK90
                     </p>
+                    <a href="https://coursera.org/verify/specialization/W7U5L4RTAK90" class="cert-link" target="_blank" data-lang="en">View Certificate →</a>
+                    <a href="https://coursera.org/verify/specialization/W7U5L4RTAK90" class="cert-link" target="_blank" data-lang="it">Vedi Certificato →</a>
                 </div>
 
                 <div class="cert-card">
@@ -893,6 +921,8 @@
                     <p style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--text-light);">
                         Credential: W183YBN7NY0O
                     </p>
+                    <a href="https://coursera.org/verify/specialization/W183YBN7NY0O" class="cert-link" target="_blank" data-lang="en">View Certificate →</a>
+                    <a href="https://coursera.org/verify/specialization/W183YBN7NY0O" class="cert-link" target="_blank" data-lang="it">Vedi Certificato →</a>
                 </div>
 
                 <div class="cert-card">
@@ -903,6 +933,8 @@
                     <p style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--text-light);">
                         Credential: LHW6WQNARXN1
                     </p>
+                    <a href="https://coursera.org/verify/professional-cert/LHW6WQNARXN1" class="cert-link" target="_blank" data-lang="en">View Certificate →</a>
+                    <a href="https://coursera.org/verify/professional-cert/LHW6WQNARXN1" class="cert-link" target="_blank" data-lang="it">Vedi Certificato →</a>
                 </div>
 
                 <div class="cert-card">
@@ -913,8 +945,8 @@
                     <p style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--text-light);">
                         Credential: DAECGFEAUJMR
                     </p>
-                    <a href="https://www.credly.com/badges/d9834e10-c7f9-46b6-98e5-7e5a7a1e1e1e" class="cert-link" target="_blank" data-lang="en">View Certificate →</a>
-                    <a href="https://www.credly.com/badges/d9834e10-c7f9-46b6-98e5-7e5a7a1e1e1e" class="cert-link" target="_blank" data-lang="it">Vedi Certificato →</a>
+                    <a href="https://coursera.org/verify/DAECGFEAUJMR" class="cert-link" target="_blank" data-lang="en">View Certificate →</a>
+                    <a href="https://coursera.org/verify/DAECGFEAUJMR" class="cert-link" target="_blank" data-lang="it">Vedi Certificato →</a>
                 </div>
 
                 <div class="cert-card">
@@ -925,6 +957,8 @@
                     <p style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--text-light);">
                         Credential: YQNJEIYJ
                     </p>
+                    <a href="https://www.mygreatlearning.com/certificate/YQNJEIYJ" class="cert-link" target="_blank" data-lang="en">View Certificate →</a>
+                    <a href="https://www.mygreatlearning.com/certificate/YQNJEIYJ" class="cert-link" target="_blank" data-lang="it">Vedi Certificato →</a>
                 </div>
             </div>
         </section>
@@ -957,7 +991,7 @@
                 <div class="contact-item">
                     <strong data-lang="en">🌐 Website:</strong>
                     <strong data-lang="it">🌐 Sito Web:</strong>
-                    <a href="https://daviderota.dev" target="_blank">daviderota.dev</a>
+                    <a href="https://daviderota-ai.github.io" target="_blank">daviderota-ai.github.io</a>
                 </div>
                 <div class="contact-item">
                     <strong data-lang="en">📍 Location:</strong>
@@ -1005,7 +1039,6 @@
             }
         }
 
-        // Load saved language preference
         window.addEventListener('DOMContentLoaded', function() {
             const savedLang = localStorage.getItem('language');
             if (savedLang === 'it') {
