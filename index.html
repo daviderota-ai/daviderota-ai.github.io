@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davide Rota - AI Business Specialist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --white: #ffffff;
+            --border-color: #e5e7eb;
+            --success-color: #10b981;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin-top: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0.25rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 2px var(--primary-color);
+        }
+
+        .timeline-item h4 {
+            color: var(--primary-color);
+        }
+
+        .timeline-date {
+            color: var(--text-light);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+        }
+
+        .skill-category h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-list li::before {
+            content: '✓';
+            color: var(--success-color);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .contact-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .cert-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .cert-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+
+        .cert-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .cert-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 1.125rem;
+        }
+
+        .cert-org {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-date {
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        .cert-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.875rem;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        .cert-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card h4 {
+            color: var(--primary-color);
+        }
+
+        ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        ul li {
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Davide Rota</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Davide Rota</h1>
+            <p>Swiss professional transitioning into the AI industry<br>
+            Preparing for the AI Business Specialist Federal Diploma 2026</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                <a href="Davide_Rota_CV.pdf" class="btn btn-secondary" download>Download CV</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p style="font-size: 1.125rem; line-height: 1.8; color: var(--text-dark);">
+                Swiss professional with over 15 years of experience in operational, administrative, and analytical roles. 
+                Certified Precious Metal Assayer (Federal Diploma) with six years of laboratory experience and a solid foundation 
+                in business and economics (SCC Bellinzona).
+            </p>
+            <p style="font-size: 1.125rem; line-height: 1.8; color: var(--text-dark); margin-top: 1rem;">
+                After managing and expanding independent businesses in India, taking full responsibility for human resources, 
+                invoicing, client relations, and financial management, I am now specialising in the strategic application of 
+                Artificial Intelligence to business operations.
+            </p>
+            <p style="font-size: 1.125rem; line-height: 1.8; color: var(--text-dark); margin-top: 1rem;">
+                Enrolled in the School for Business AI Specialist (Swiss Federal Diploma, 2025–2026), focusing on the use of 
+                AI for process optimisation, evaluation of Large Language Models (LLM), and business automation.
+            </p>
+
+            <div class="card-grid" style="margin-top: 3rem;">
+                <div class="card">
+                    <h3>🎓 Learning Journey</h3>
+                    <p>Continuous professional development in AI, machine learning, and business automation through leading platforms and institutions.</p>
+                </div>
+                <div class="card">
+                    <h3>🛠️ Technical Skills</h3>
+                    <p>Mastering AI platforms, automation tools, and modern business technologies to drive digital transformation.</p>
+                </div>
+                <div class="card">
+                    <h3>💼 Real-World Projects</h3>
+                    <p>Hands-on experience with practical projects and exercises based on real-world business scenarios.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">May 2025 – Present</div>
+                    <h4>Freelance AI Evaluator & Prompt Tester</h4>
+                    <p style="color: var(--text-light); margin-bottom: 0.5rem;">Remote</p>
+                    <ul>
+                        <li>Participation in multilingual AI evaluation projects (DataAnnotation, Outlier)</li>
+                        <li>Review of AI-generated outputs in Italian (including Swiss Italian) and English</li>
+                        <li>Prompt design and testing; contribution to rubric-based analysis</li>
+                        <li>Practical experience in qualitative chatbot evaluation</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">November 2022 – May 2025</div>
+                    <h4>Executive Director - Hemplanet</h4>
+                    <p style="color: var(--text-light); margin-bottom: 0.5rem;">Auroville, India</p>
+                    <ul>
+                        <li>Full operational management and supervision of three employees</li>
+                        <li>Co-design and implementation of digital processes (Zoho Books, Google Drive, Wix)</li>
+                        <li>Client relations, supplier negotiations, invoicing, accounting, and logistics</li>
+                        <li>Product design and launch of new lines, contributing to 5x growth without external investment</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">September 2020 – May 2025</div>
+                    <h4>Operations Manager - Gastronomica</h4>
+                    <p style="color: var(--text-light); margin-bottom: 0.5rem;">Auroville, India</p>
+                    <ul>
+                        <li>Daily management of a pasta production facility with retail and B2B distribution</li>
+                        <li>Full administrative cycle: procurement, invoicing, communication, accounting, and branding</li>
+                        <li>Management of a team of up to seven people across production, kitchen, and sales</li>
+                        <li>Optimisation of financial and operational flows using Excel and Google Drive</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2019 – 2020</div>
+                    <h4>Café Manager - Bread & Chocolate</h4>
+                    <p style="color: var(--text-light); margin-bottom: 0.5rem;">Auroville, India</p>
+                    <ul>
+                        <li>Coordination of operations in one of Auroville's busiest cafés with over 25 employees</li>
+                        <li>Quality control, issue resolution, and workflow optimisation</li>
+                        <li>Recognised by ownership as the top-performing manager</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2011 – 2017</div>
+                    <h4>Certified Precious Metal Assayer - Ecometal SA</h4>
+                    <p style="color: var(--text-light); margin-bottom: 0.5rem;">Mendrisio, Switzerland</p>
+                    <ul>
+                        <li>High-precision chemical analysis according to Swiss federal standards</li>
+                        <li>Management of documentation, compliance, and internal reporting</li>
+                        <li>Transitioned from a non-technical profile to a certified role through self-learning</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Skills & Tools</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Key Competencies</h4>
+                    <ul class="skill-list">
+                        <li>Operational Leadership</li>
+                        <li>Process Digitalisation</li>
+                        <li>Team Management</li>
+                        <li>Financial Oversight</li>
+                        <li>Intercultural Communication</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>AI Platforms</h4>
+                    <ul class="skill-list">
+                        <li>ChatGPT</li>
+                        <li>Claude</li>
+                        <li>Gemini</li>
+                        <li>Grok</li>
+                        <li>DeepSeek</li>
+                        <li>Perplexity</li>
+                        <li>Copilot</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Automation & Tools</h4>
+                    <ul class="skill-list">
+                        <li>Make.com (basic)</li>
+                        <li>Zapier (basic)</li>
+                        <li>Python (learning)</li>
+                        <li>n8n</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Office & Admin</h4>
+                    <ul class="skill-list">
+                        <li>Excel & Google Workspace</li>
+                        <li>Microsoft Office</li>
+                        <li>Notion</li>
+                        <li>Zoho Books</li>
+                        <li>Square</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Languages</h4>
+                    <ul class="skill-list">
+                        <li>Italian (Native)</li>
+                        <li>English (Fluent)</li>
+                        <li>French (Intermediate)</li>
+                        <li>German (Basic)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications">
+            <h2>Certifications & Learning Journey</h2>
+            <span class="badge">Currently Enrolled: Business AI Specialist Federal Diploma 2025-2026</span>
+            
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-org">Vanderbilt University</div>
+                    <div class="cert-title">Agentic AI and AI Agents for Leaders Specialization</div>
+                    <div class="cert-date">July 2025</div>
+                    <p style="margin-top: 0.5rem; color: var(--text-light);">
+                        Design basic AI agents using custom GPTs, critically evaluate AI solutions, and harness automation for real-world impact.
+                    </p>
+                    <a href="https://coursera.org/verify/specialization/W183YBN7NY0O" class="cert-link" target="_blank">View Certificate →</a>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-org">IBM</div>
+                    <div class="cert-title">AI Foundations for Business</div>
+                    <div class="cert-date">June 2025</div>
+                    <p style="margin-top: 0.5rem; color: var(--text-light);">
+                        Applying AI and data science to business challenges using the AI Ladder framework.
+                    </p>
+                    <a href="https://coursera.org/verify/specialization/W7U5L4RTAK90" class="cert-link" target="_blank">View Certificate →</a>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-org">IBM</div>
+                    <div class="cert-title">AI Foundations for Everyone</div>
+                    <div class="cert-date">May 2025</div>
+                    <p style="margin-top: 0.5rem; color: var(--text-light);">
+                        Developed foundational skills in AI, generative AI, prompt engineering, and chatbot building.
+                    </p>
+                    <a href="https://coursera.org/share/3db7b43fdd021cb700c3ec44b1df5589" class="cert-link" target="_blank">View Certificate →</a>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-org">Vanderbilt University</div>
+                    <div class="cert-title">Prompt Engineering for ChatGPT</div>
+                    <div class="cert-date">May 2025 • 100% Grade</div>
+                    <p style="margin-top: 0.5rem; color: var(--text-light);">
+                        Advanced prompt engineering techniques for effective use of Large Language Models.
+                    </p>
+                    <a href="https://coursera.org/verify/AV6OLGMINWOL" class="cert-link" target="_blank">View Certificate →</a>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-org">Google</div>
+                    <div class="cert-title">Google IT Support Professional Certificate</div>
+                    <div class="cert-date">May 2025</div>
+                    <p style="margin-top: 0.5rem; color: var(--text-light);">
+                        Comprehensive IT support skills including networking, operating systems, system administration, and IT security.
+                    </p>
+                    <a href="https://coursera.org/verify/professional-cert/LHW6WQNARXN1" class="cert-link" target="_blank">View Certificate →</a>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-org">IBM</div>
+                    <div class="cert-title">Introduction to Cybersecurity Essentials</div>
+                    <div class="cert-date">May 2025</div>
+                    <p style="margin-top: 0.5rem; color: var(--text-light);">
+                        Foundational knowledge in cybersecurity principles and best practices.
+                    </p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-org">Great Learning Academy</div>
+                    <div class="cert-title">Applications of AI</div>
+                    <div class="cert-date">May 2025</div>
+                    <p style="margin-top: 0.5rem; color: var(--text-light);">
+                        Ethical applications in the field of Artificial Intelligence.
+                    </p>
+                    <a href="https://www.mygreatlearning.com/certificate/YQNJEIYJ" class="cert-link" target="_blank">View Certificate →</a>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; padding: 2rem; background: var(--bg-light); border-radius: 0.75rem;">
+                <h3>Education</h3>
+                <div style="margin-top: 1.5rem;">
+                    <h4 style="color: var(--primary-color);">Business AI Specialist (Federal Diploma)</h4>
+                    <p style="color: var(--text-light); margin-bottom: 0.5rem;">Remote, October 2025 – Present</p>
+                    <p>Federal specialisation programme focused on digitalisation strategies, business applications of AI, automation, and ethical management of intelligent systems.</p>
+                </div>
+                <div style="margin-top: 1.5rem;">
+                    <h4 style="color: var(--primary-color);">Federal Diploma - Certified Precious Metal Assayer</h4>
+                    <p style="color: var(--text-light); margin-bottom: 0.5rem;">BCMP, Switzerland, 2015</p>
+                </div>
+                <div style="margin-top: 1.5rem;">
+                    <h4 style="color: var(--primary-color);">Commercial High School Diploma</h4>
+                    <p style="color: var(--text-light); margin-bottom: 0.5rem;">SCC Bellinzona, Switzerland, 2007</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Practical Projects & Exercises</h2>
+            <p style="font-size: 1.125rem; margin-bottom: 2rem;">Real-world scenarios and hands-on projects demonstrating practical application of skills.</p>
+
+            <div class="project-card">
+                <h4>Email Summary to Notion Automation</h4>
+                <p><strong>Tools:</strong> Make.com, Gmail API, Notion API, GPT</p>
+                <p style="margin-top: 0.5rem;">Automated workflow that filters, summarizes, and organizes emails directly into a Notion database using AI-powered summarization.</p>
+            </div>
+
+            <div class="project-card">
+                <h4>Smart Focus Planner (Prompt-Based Micro Project)</h4>
+                <p><strong>Tools:</strong> GPT (Prompt Engineering)</p>
+                <p style="margin-top: 0.5rem;">AI-powered daily planning system using advanced prompt engineering to generate personalized, context-aware daily focus plans.</p>
+            </div>
+
+            <div class="project-card">
+                <h4>n8n Workflow: Form-to-Slack Automation</h4>
+                <p><strong>Tools:</strong> n8n, Slack API, Webhooks</p>
+                <p style="margin-top: 0.5rem;">Created automated workflow connecting web forms to Slack notifications for real-time team communication.</p>
+            </div>
+
+            <div class="project-card">
+                <h4>Website Security Audit Project</h4>
+                <p><strong>Tools:</strong> Security Analysis Tools, Documentation</p>
+                <p style="margin-top: 0.5rem;">Conducted comprehensive security audits identifying vulnerabilities and providing actionable recommendations.</p>
+            </div>
+
+            <div class="project-card">
+                <h4>Basic Home Office Network Setup and Troubleshooting</h4>
+                <p><strong>Skills:</strong> Network Configuration, Troubleshooting</p>
+                <p style="margin-top: 0.5rem;">Practical IT support experience setting up and maintaining home office network infrastructure.</p>
+            </div>
+
+            <div class="project-card">
+                <h4>Mobile Device Migration – Android to iPhone</h4>
+                <p><strong>Skills:</strong> Data Migration, User Training</p>
+                <p style="margin-top: 0.5rem;">Successfully managed complete mobile platform migration including data transfer and user training.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Get in Touch</h2>
+            <p style="font-size: 1.125rem; margin-bottom: 2rem;">
+                Open to new professional opportunities, both on-site and remote. Let's connect!
+            </p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>📧 Email:</strong>
+                    <a href="mailto:daviderota.tech@gmail.com">daviderota.tech@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <strong>📱 Phone:</strong>
+                    <a href="tel:+41783190106">+41 78 319 01 06</a>
+                </div>
+                <div class="contact-item">
+                    <strong>💼 LinkedIn:</strong>
+                    <a href="https://linkedin.com/in/daviderota-ai" target="_blank">linkedin.com/in/daviderota-ai</a>
+                </div>
+                <div class="contact-item">
+                    <strong>📍 Location:</strong>
+                    <span>Riva San Vitale, Ticino, Switzerland</span>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <a href="Davide_Rota_CV.pdf" class="btn btn-primary" download>Download Full CV (PDF)</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Davide Rota. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.875rem; opacity: 0.8;">
+            Lifelong Learning | Technical Excellence | Remote Work Readiness
+        </p>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active class to nav links on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
