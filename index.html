@@ -582,9 +582,24 @@
             margin-left: 0.5rem;
         }
 
-        [data-lang="it"] { display: none; }
-        body.lang-it [data-lang="en"] { display: none; }
-        body.lang-it [data-lang="it"] { display: block; }
+        [data-lang="it"] { display: none !important; }
+        [data-lang="en"] { display: inline !important; }
+        
+        body.lang-it [data-lang="en"] { display: none !important; }
+        body.lang-it [data-lang="it"] { display: inline !important; }
+        
+        /* For block elements like p, div, etc */
+        p[data-lang="en"], div[data-lang="en"], 
+        h2[data-lang="en"], h3[data-lang="en"], h4[data-lang="en"],
+        ul[data-lang="en"], span[data-lang="en"] {
+            display: block !important;
+        }
+        
+        body.lang-it p[data-lang="it"], body.lang-it div[data-lang="it"],
+        body.lang-it h2[data-lang="it"], body.lang-it h3[data-lang="it"], body.lang-it h4[data-lang="it"],
+        body.lang-it ul[data-lang="it"], body.lang-it span[data-lang="it"] {
+            display: block !important;
+        }
 
         .mobile-overlay {
             display: none;
