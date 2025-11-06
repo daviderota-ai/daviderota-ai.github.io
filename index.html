@@ -44,6 +44,29 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
         }
 
         .logo {
@@ -444,12 +467,40 @@
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .hamburger {
+                display: flex;
             }
 
-            .lang-toggle {
-                display: flex !important;
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            .nav-links.active {
+                max-height: 400px;
+            }
+
+            .nav-links li {
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem 2rem;
+            }
+
+            .nav-links .lang-toggle {
+                margin: 1rem 2rem;
             }
 
             .hero h1 {
@@ -518,13 +569,18 @@
     <nav>
         <div class="nav-container">
             <div class="logo">Davide Rota</div>
-            <ul class="nav-links">
-                <li><a href="#home" data-lang="en">Home</a><a href="#home" data-lang="it">Home</a></li>
-                <li><a href="#about" data-lang="en">About</a><a href="#about" data-lang="it">Profilo</a></li>
-                <li><a href="#experience" data-lang="en">Experience</a><a href="#experience" data-lang="it">Esperienza</a></li>
-                <li><a href="#skills" data-lang="en">Skills</a><a href="#skills" data-lang="it">Competenze</a></li>
-                <li><a href="#education" data-lang="en">Education</a><a href="#education" data-lang="it">Formazione</a></li>
-                <li><a href="#contact" data-lang="en">Contact</a><a href="#contact" data-lang="it">Contatti</a></li>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" data-lang="en" onclick="closeMenu()">Home</a><a href="#home" data-lang="it" onclick="closeMenu()">Home</a></li>
+                <li><a href="#about" data-lang="en" onclick="closeMenu()">About</a><a href="#about" data-lang="it" onclick="closeMenu()">Profilo</a></li>
+                <li><a href="#experience" data-lang="en" onclick="closeMenu()">Experience</a><a href="#experience" data-lang="it" onclick="closeMenu()">Esperienza</a></li>
+                <li><a href="#skills" data-lang="en" onclick="closeMenu()">Skills</a><a href="#skills" data-lang="it" onclick="closeMenu()">Competenze</a></li>
+                <li><a href="#education" data-lang="en" onclick="closeMenu()">Education</a><a href="#education" data-lang="it" onclick="closeMenu()">Formazione</a></li>
+                <li><a href="#contact" data-lang="en" onclick="closeMenu()">Contact</a><a href="#contact" data-lang="it" onclick="closeMenu()">Contatti</a></li>
                 <li class="lang-toggle">
                     <button onclick="setLanguage('en')" id="lang-en" class="active">EN</button>
                     <button onclick="setLanguage('it')" id="lang-it">IT</button>
@@ -1038,6 +1094,16 @@
     </footer>
 
     <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.remove('active');
+        }
+
         function setLanguage(lang) {
             if (lang === 'it') {
                 document.body.classList.add('lang-it');
