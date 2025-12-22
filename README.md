@@ -4,7 +4,7 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://linkedin.com/in/daviderota-ai)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-I help SMEs understand where AI fits — and where it doesn't.
+I help businesses understand where AI fits — and where it doesn't.
 
 ## 🌐 Live Site
 
