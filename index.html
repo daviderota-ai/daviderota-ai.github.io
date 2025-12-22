@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Davide Rota - Administrative Manager | Operations & Business Support</title>
+    <title>Davide Rota | Business AI Specialist</title>
+    <meta name="description" content="I help SMEs understand where AI fits — and where it doesn't. Independent AI strategy and research.">
     <style>
         * {
             margin: 0;
@@ -12,14 +13,14 @@
         }
 
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
+            --primary-color: #1e3a5f;
+            --secondary-color: #0f172a;
+            --accent-color: #3b82f6;
             --text-dark: #1f2937;
             --text-light: #6b7280;
-            --bg-light: #f9fafb;
+            --bg-light: #f8fafc;
             --white: #ffffff;
             --border-color: #e5e7eb;
-            --success-color: #10b981;
         }
 
         body {
@@ -29,6 +30,11 @@
             background-color: var(--white);
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
         nav {
             background: var(--white);
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
@@ -38,7 +44,7 @@
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 1rem 2rem;
             display: flex;
@@ -47,10 +53,10 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--primary-color);
-            z-index: 1002;
+            text-decoration: none;
         }
 
         .nav-links {
@@ -68,7 +74,7 @@
         }
 
         .nav-links a:hover {
-            color: var(--primary-color);
+            color: var(--accent-color);
         }
 
         .lang-toggle {
@@ -93,7 +99,7 @@
         }
 
         .lang-toggle button.active {
-            background: var(--primary-color);
+            background: var(--accent-color);
             color: white;
         }
 
@@ -128,11 +134,11 @@
             transform: rotate(-45deg) translate(7px, -7px);
         }
 
+        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             color: var(--white);
-            padding: 4rem 2rem;
-            text-align: center;
+            padding: 5rem 2rem;
         }
 
         .hero-content {
@@ -141,333 +147,198 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            text-align: center;
         }
 
         .hero-photo {
-            width: 200px;
+            width: 160px;
             height: auto;
-            border-radius: 8px;
-            border: 5px solid white;
+            border-radius: 50%;
+            border: 4px solid white;
             box-shadow: 0 8px 24px rgba(0,0,0,0.2);
             margin-bottom: 1.5rem;
-            object-fit: contain;
+            object-fit: cover;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
             font-weight: 700;
         }
 
-        .hero .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            opacity: 0.95;
-            font-weight: 500;
-        }
-
-        .hero-links {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-            justify-content: center;
+        .hero .tagline {
+            font-size: 1.4rem;
             margin-bottom: 1.5rem;
-            flex-wrap: wrap;
+            opacity: 0.95;
+            font-weight: 400;
         }
 
-        .hero-link {
-            color: white;
-            text-decoration: none;
-            font-size: 0.95rem;
-            opacity: 0.9;
-            transition: opacity 0.3s;
-        }
-
-        .hero-link:hover {
-            opacity: 1;
-            text-decoration: underline;
-        }
-
-        .hero p {
-            font-size: 1.125rem;
+        .hero .intro {
+            font-size: 1.1rem;
             margin-bottom: 2rem;
             opacity: 0.9;
+            max-width: 600px;
         }
 
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 0.75rem 1.5rem;
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 1rem 2rem;
             border-radius: 0.5rem;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
-            display: inline-block;
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
         }
 
-        .btn-primary {
-            background: var(--white);
-            color: var(--primary-color);
-        }
-
-        .btn-primary:hover {
+        .cta-button:hover {
+            background: #2563eb;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-
-        .btn-secondary:hover {
-            background: var(--white);
-            color: var(--primary-color);
-        }
-
+        /* Sections */
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 4rem 2rem;
         }
 
-        section {
-            margin-bottom: 4rem;
-        }
-
         h2 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 1.5rem;
-            color: var(--text-dark);
+            color: var(--primary-color);
         }
 
         h3 {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
             color: var(--text-dark);
         }
 
-        h4 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .qualifications-box {
+        /* Services Section */
+        .services-section {
             background: var(--bg-light);
-            border-left: 4px solid var(--primary-color);
-            padding: 2rem;
-            border-radius: 0.5rem;
-            margin-top: 2rem;
+            padding: 4rem 2rem;
         }
 
-        .qualifications-box h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .qualifications-box ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .qualifications-box li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .qualifications-box li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-            margin-top: 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--border-color);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2.5rem;
-            padding-left: 2rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2.5rem;
-            top: 0.25rem;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--primary-color);
-            border: 3px solid var(--white);
-            box-shadow: 0 0 0 2px var(--primary-color);
-        }
-
-        .timeline-item.current::before {
-            background: var(--success-color);
-            box-shadow: 0 0 0 2px var(--success-color);
-        }
-
-        .timeline-item h4 {
-            color: var(--primary-color);
-            font-size: 1.4rem;
-        }
-
-        .timeline-date {
-            color: var(--text-light);
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .company-name {
-            font-weight: 600;
-            color: var(--text-dark);
-            font-size: 1.1rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .job-location {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .skills-section {
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .service-card .icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary-color);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* About Section */
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .credentials-box {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
             margin-top: 2rem;
         }
 
-        .skill-box {
-            background: var(--bg-light);
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-        }
-
-        .skill-box h4 {
+        .credentials-box h3 {
             color: var(--primary-color);
             margin-bottom: 1rem;
             font-size: 1.2rem;
         }
 
-        .skill-box ul {
+        .credentials-box ul {
             list-style: none;
             padding: 0;
         }
 
-        .skill-box li {
-            padding: 0.4rem 0;
+        .credentials-box li {
+            padding: 0.5rem 0 0.5rem 1.5rem;
+            position: relative;
             color: var(--text-dark);
         }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
+        .credentials-box li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
         }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem;
+        /* Contact Section */
+        .contact-section {
             background: var(--bg-light);
-            border-radius: 0.5rem;
+            padding: 4rem 2rem;
         }
 
-        .contact-item strong {
-            color: var(--primary-color);
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
         }
 
-        .contact-item a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .contact-item a:hover {
-            color: var(--primary-color);
-            text-decoration: underline;
-        }
-
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .cert-card {
-            background: var(--white);
-            border: 1px solid var(--border-color);
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            transition: all 0.3s;
-        }
-
-        .cert-card:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .cert-org {
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .cert-title {
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 0.25rem;
-        }
-
-        .cert-date {
+        .contact-content > p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
             color: var(--text-light);
-            font-size: 0.875rem;
         }
 
-        .cert-link {
-            color: var(--primary-color);
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-links a {
+            color: var(--text-dark);
             text-decoration: none;
-            font-size: 0.875rem;
-            display: inline-block;
-            margin-top: 0.5rem;
+            font-size: 1rem;
+            transition: color 0.3s;
         }
 
-        .cert-link:hover {
-            text-decoration: underline;
+        .contact-links a:hover {
+            color: var(--accent-color);
         }
 
+        .location-info {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* Footer */
         footer {
             background: var(--text-dark);
             color: var(--white);
@@ -475,6 +346,42 @@
             text-align: center;
         }
 
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Language Toggle CSS */
+        [data-lang="it"] { display: none !important; }
+        [data-lang="en"] { display: block !important; }
+
+        body.lang-it [data-lang="en"] { display: none !important; }
+        body.lang-it [data-lang="it"] { display: block !important; }
+
+        /* Inline elements fix */
+        a[data-lang="en"], span[data-lang="en"] { display: inline !important; }
+        body.lang-it a[data-lang="it"], body.lang-it span[data-lang="it"] { display: inline !important; }
+
+        /* Mobile Overlay */
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             .hamburger {
                 display: flex;
@@ -503,10 +410,11 @@
 
             .nav-links li {
                 width: 100%;
+                border-bottom: 1px solid var(--border-color);
             }
 
-            .nav-links li:not(:has(.lang-toggle)) {
-                border-bottom: 1px solid var(--border-color);
+            .nav-links li:last-child {
+                border-bottom: none;
             }
 
             .nav-links li a {
@@ -521,111 +429,43 @@
                 justify-content: center;
             }
 
+            .hero {
+                padding: 3rem 1.5rem;
+            }
+
             .hero h1 {
                 font-size: 2rem;
             }
 
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            .container {
-                padding: 2rem 1rem;
+            .hero .tagline {
+                font-size: 1.1rem;
             }
 
             .hero-photo {
-                width: 170px;
-                height: auto;
+                width: 130px;
             }
 
-            .contact-grid {
-                grid-template-columns: 1fr;
+            h2 {
+                font-size: 1.6rem;
             }
 
-            .logo {
-                font-size: 1.2rem;
+            .container {
+                padding: 3rem 1.5rem;
             }
-        }
 
-        @media (max-width: 1024px) and (min-width: 769px) {
-            .contact-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
             }
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        ul {
-            margin-left: 1.5rem;
-            margin-top: 0.5rem;
-        }
-
-        ul li {
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .current-badge {
-            display: inline-block;
-            background: var(--success-color);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 1rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-left: 0.5rem;
-        }
-
-        [data-lang="it"] { display: none !important; }
-        [data-lang="en"] { display: inline !important; }
-        
-        body.lang-it [data-lang="en"] { display: none !important; }
-        body.lang-it [data-lang="it"] { display: inline !important; }
-        
-        /* For block elements like p, div, etc */
-        p[data-lang="en"], div[data-lang="en"], 
-        h2[data-lang="en"], h3[data-lang="en"], h4[data-lang="en"],
-        ul[data-lang="en"], span[data-lang="en"] {
-            display: block !important;
-        }
-        
-        body.lang-it p[data-lang="it"], body.lang-it div[data-lang="it"],
-        body.lang-it h2[data-lang="it"], body.lang-it h3[data-lang="it"], body.lang-it h4[data-lang="it"],
-        body.lang-it ul[data-lang="it"], body.lang-it span[data-lang="it"] {
-            display: block !important;
-        }
-
-        .mobile-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            z-index: 999;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .mobile-overlay.active {
-            display: block;
-            opacity: 1;
         }
     </style>
 </head>
 <body>
     <div class="mobile-overlay" id="mobileOverlay" onclick="closeMenu()"></div>
-    
+
     <nav>
         <div class="nav-container">
-            <div class="logo">Davide Rota</div>
+            <a href="#" class="logo">Davide Rota</a>
             <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
                 <span></span>
                 <span></span>
@@ -633,24 +473,12 @@
             </button>
             <ul class="nav-links" id="navLinks">
                 <li>
-                    <a href="#home" onclick="closeMenu()" data-lang="en">Home</a>
-                    <a href="#home" onclick="closeMenu()" data-lang="it">Home</a>
+                    <a href="#services" onclick="closeMenu()" data-lang="en">Services</a>
+                    <a href="#services" onclick="closeMenu()" data-lang="it">Servizi</a>
                 </li>
                 <li>
                     <a href="#about" onclick="closeMenu()" data-lang="en">About</a>
-                    <a href="#about" onclick="closeMenu()" data-lang="it">Profilo</a>
-                </li>
-                <li>
-                    <a href="#experience" onclick="closeMenu()" data-lang="en">Experience</a>
-                    <a href="#experience" onclick="closeMenu()" data-lang="it">Esperienza</a>
-                </li>
-                <li>
-                    <a href="#skills" onclick="closeMenu()" data-lang="en">Skills</a>
-                    <a href="#skills" onclick="closeMenu()" data-lang="it">Competenze</a>
-                </li>
-                <li>
-                    <a href="#education" onclick="closeMenu()" data-lang="en">Education</a>
-                    <a href="#education" onclick="closeMenu()" data-lang="it">Formazione</a>
+                    <a href="#about" onclick="closeMenu()" data-lang="it">Chi Sono</a>
                 </li>
                 <li>
                     <a href="#contact" onclick="closeMenu()" data-lang="en">Contact</a>
@@ -667,503 +495,112 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <img src="davide_rota.jpg" alt="Davide Rota" class="hero-photo">
-            <h1>Davide Rota</h1>
-            <div class="hero-links">
-                <a href="https://linkedin.com/in/daviderota-ai" class="hero-link" target="_blank">💼 LinkedIn</a>
-                <a href="https://daviderota-ai.github.io" class="hero-link">🌐 daviderota-ai.github.io</a>
+
+            <h1 data-lang="en">AI Strategy & Research</h1>
+            <h1 data-lang="it">Strategia & Ricerca AI</h1>
+
+            <p class="tagline" data-lang="en">I help SMEs understand where AI fits — and where it doesn't.</p>
+            <p class="tagline" data-lang="it">Aiuto le PMI a capire dove l'AI serve — e dove no.</p>
+
+            <p class="intro" data-lang="en">10+ years managing operations in hospitality, food production, and luxury goods. Now I bring that hands-on experience to AI strategy. No software to sell. Just clarity.</p>
+            <p class="intro" data-lang="it">Oltre 10 anni di gestione operativa in hospitality, produzione alimentare e beni di lusso. Ora porto questa esperienza pratica nella strategia AI. Nessun software da vendere. Solo chiarezza.</p>
+
+            <a href="#contact" class="cta-button" data-lang="en">Let's Talk</a>
+            <a href="#contact" class="cta-button" data-lang="it">Parliamone</a>
+        </div>
+    </section>
+
+    <section class="services-section" id="services">
+        <h2 style="text-align: center; max-width: 1000px; margin: 0 auto 2rem;" data-lang="en">What I Offer</h2>
+        <h2 style="text-align: center; max-width: 1000px; margin: 0 auto 2rem;" data-lang="it">Cosa Offro</h2>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="icon">🔍</div>
+                <h3 data-lang="en">AI Readiness Assessments</h3>
+                <h3 data-lang="it">Valutazioni AI Readiness</h3>
+                <p data-lang="en">Understand where AI can actually help your business — and where it's just hype. Independent analysis, no vendor bias.</p>
+                <p data-lang="it">Capire dove l'AI può davvero aiutare il tuo business — e dove è solo hype. Analisi indipendente, nessun interesse commerciale.</p>
             </div>
-            <div class="subtitle" data-lang="en">Administrative Manager | Operations & Business Support</div>
-            <div class="subtitle" data-lang="it">Responsabile Amministrativo | Operazioni e Supporto Aziendale</div>
-            
-            <p data-lang="en">Swiss professional with 15+ years in office administration, operations, and business management. 
-            Currently preparing for Swiss Federal Diploma as Business AI Specialist (exam 2026).</p>
-            <p data-lang="it">Professionista svizzero con oltre 15 anni di esperienza in amministrazione d'ufficio, operazioni e gestione aziendale. 
-            Attualmente in preparazione per il Diploma Federale Svizzero come Specialista AI Aziendale (esame 2026).</p>
-            
-            <p style="font-size: 1rem; margin-bottom: 2rem;" data-lang="en">
-                📍 Riva San Vitale, Ticino, Switzerland | 
-                🌍 Open to Remote & International Opportunities
-            </p>
-            <p style="font-size: 1rem; margin-bottom: 2rem;" data-lang="it">
-                📍 Riva San Vitale, Ticino, Svizzera | 
-                🌍 Aperto a Opportunità Remote e Internazionali
-            </p>
-            
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary" data-lang="en">Get in Touch</a>
-                <a href="#contact" class="btn btn-primary" data-lang="it">Contattami</a>
-                <a href="Davide_Rota_CV.pdf" class="btn btn-secondary" download data-lang="en">Download CV</a>
-                <a href="Davide_Rota_CV.pdf" class="btn btn-secondary" download data-lang="it">Scarica CV</a>
+
+            <div class="service-card">
+                <div class="icon">⚡</div>
+                <h3 data-lang="en">Strategy Sessions</h3>
+                <h3 data-lang="it">Sessioni Strategiche</h3>
+                <p data-lang="en">1 call, 1 problem, actionable answers. No fluff, no upselling. You leave with clarity.</p>
+                <p data-lang="it">1 chiamata, 1 problema, risposte concrete. Niente fuffa, niente upselling. Esci con le idee chiare.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">📚</div>
+                <h3 data-lang="en">Research & Reports</h3>
+                <h3 data-lang="it">Ricerca & Report</h3>
+                <p data-lang="en">I do the AI research you don't have time for. Clear, practical, unbiased insights delivered to you.</p>
+                <p data-lang="it">Faccio la ricerca AI che non hai tempo di fare. Analisi chiare, pratiche, imparziali consegnate a te.</p>
             </div>
         </div>
     </section>
 
     <div class="container">
         <section id="about">
-            <h2 data-lang="en">Profile</h2>
-            <h2 data-lang="it">Profilo</h2>
-            
-            <div data-lang="en">
-                <p style="font-size: 1.125rem; line-height: 1.8;">
-                    Swiss professional with 15+ years in office administration, operations, and business management. 
-                    Managed full administrative cycles for multiple companies: invoicing, accounting, budget management, 
-                    client relations, vendor management, HR coordination, and financial oversight.
-                </p>
-                <p style="font-size: 1.125rem; line-height: 1.8; margin-top: 1rem;">
-                    Expertise in administrative procedures, document control, and database management. Experience with 
-                    office software, business systems (Zoho, CRM, ERP), and workflow optimization. Currently preparing 
-                    for the Swiss Federal Diploma as Business AI Specialist (exam 2026), applying AI tools to streamline 
-                    administrative workflows.
-                </p>
-                <p style="font-size: 1.125rem; line-height: 1.8; margin-top: 1rem;">
-                    Fluent in Italian and English; intermediate French (B1) and basic German (A2). Available for office 
-                    and remote positions in Switzerland, European Union, and international environments.
-                </p>
-            </div>
+            <h2 data-lang="en">Background</h2>
+            <h2 data-lang="it">Chi Sono</h2>
 
-            <div data-lang="it">
-                <p style="font-size: 1.125rem; line-height: 1.8;">
-                    Professionista svizzero con oltre 15 anni di esperienza in amministrazione d'ufficio, operazioni e gestione aziendale. 
-                    Gestione completa dei cicli amministrativi per diverse aziende: fatturazione, contabilità, gestione del budget, 
-                    relazioni con i clienti, gestione dei fornitori, coordinamento HR e supervisione finanziaria.
-                </p>
-                <p style="font-size: 1.125rem; line-height: 1.8; margin-top: 1rem;">
-                    Competenza in procedure amministrative, controllo documenti e gestione database. Esperienza con 
-                    software per ufficio, sistemi aziendali (Zoho, CRM, ERP) e ottimizzazione dei processi. Attualmente in preparazione 
-                    per il Diploma Federale Svizzero come Specialista AI Aziendale (esame 2026), applicando strumenti AI per 
-                    semplificare i flussi di lavoro amministrativi.
-                </p>
-                <p style="font-size: 1.125rem; line-height: 1.8; margin-top: 1rem;">
-                    Madrelingua italiana e fluente in inglese; francese intermedio (B1) e tedesco base (A2). Disponibile per 
-                    posizioni in ufficio e da remoto in Svizzera, Unione Europea e ambienti internazionali.
-                </p>
-            </div>
+            <div class="about-content">
+                <div data-lang="en">
+                    <p>I've spent over a decade running operations for real businesses — a pasta production facility, a café serving 1,000+ customers weekly, a sustainable products company that scaled 5×. I know what it's like to manage teams, budgets, and chaos.</p>
+                    <p>Now I help business owners navigate AI. Not by selling software, but by doing the research they don't have time for. Independent advice, no vendor partnerships, no hidden agenda.</p>
+                </div>
 
-            <div class="qualifications-box">
-                <h3 data-lang="en">Key Qualifications</h3>
-                <h3 data-lang="it">Qualifiche Principali</h3>
-                
-                <ul data-lang="en">
-                    <li>15+ years managing full administrative operations for international businesses</li>
-                    <li>Expertise in financial administration: invoicing, accounting, budgeting</li>
-                    <li>Proven track record in team coordination and HR management</li>
-                    <li>Advanced proficiency in office software and business systems</li>
-                    <li>Multilingual: Italian (native), English (fluent), French (B1), German (A2)</li>
-                </ul>
+                <div data-lang="it">
+                    <p>Ho passato oltre un decennio a gestire operazioni per business reali — un pastificio, un caffè con oltre 1.000 clienti settimanali, un'azienda di prodotti sostenibili cresciuta 5×. So cosa significa gestire team, budget e caos.</p>
+                    <p>Ora aiuto gli imprenditori a orientarsi nell'AI. Non vendendo software, ma facendo la ricerca che non hanno tempo di fare. Consulenza indipendente, nessuna partnership con vendor, nessun secondo fine.</p>
+                </div>
 
-                <ul data-lang="it">
-                    <li>Oltre 15 anni di gestione delle operazioni amministrative complete per aziende internazionali</li>
-                    <li>Competenza in amministrazione finanziaria: fatturazione, contabilità, budgeting</li>
-                    <li>Comprovata esperienza nel coordinamento dei team e nella gestione HR</li>
-                    <li>Competenza avanzata in software per ufficio e sistemi aziendali</li>
-                    <li>Multilingue: Italiano (madrelingua), Inglese (fluente), Francese (B1), Tedesco (A2)</li>
-                </ul>
-            </div>
-        </section>
+                <div class="credentials-box">
+                    <h3 data-lang="en">Credentials</h3>
+                    <h3 data-lang="it">Credenziali</h3>
 
-        <section id="experience">
-            <h2 data-lang="en">Professional Experience</h2>
-            <h2 data-lang="it">Esperienza Professionale</h2>
-            
-            <div class="timeline">
-                <div class="timeline-item current">
-                    <span class="timeline-date" data-lang="en">2025 – Present <span class="current-badge">CURRENT</span></span>
-                    <span class="timeline-date" data-lang="it">2025 – Presente <span class="current-badge">ATTUALE</span></span>
-                    <div class="company-name">Mercor</div>
-                    <div class="job-location">Remote</div>
-                    <h4 data-lang="en">AI Prompt Design & Evaluation Specialist</h4>
-                    <h4 data-lang="it">Specialista in Design e Valutazione Prompt AI</h4>
                     <ul data-lang="en">
-                        <li>Design domain-specific prompts reflecting authentic business workflow</li>
-                        <li>Create rubrics and evaluate AI and human outputs for quality and accuracy</li>
-                        <li>Review peer tasks to improve data consistency and model reliability</li>
-                        <li>Apply administrative and operational insight to refine AI understanding</li>
+                        <li>Operations & Administration across Switzerland and India</li>
+                        <li>Sworn Precious Metals Assayer (Swiss Federal Certification)</li>
+                        <li>AI Prompt Designer & Evaluator (Mercor, DataAnnotation)</li>
+                        <li>Swiss Federal Diploma in AI Business (in progress, 2026)</li>
+                        <li>Certifications from IBM, Google, Vanderbilt University</li>
                     </ul>
+
                     <ul data-lang="it">
-                        <li>Progettazione di prompt specifici per settore che riflettono autentici flussi di lavoro aziendali</li>
-                        <li>Creazione di rubriche e valutazione di output AI e umani per qualità e precisione</li>
-                        <li>Revisione di compiti peer per migliorare la coerenza dei dati e l'affidabilità del modello</li>
-                        <li>Applicazione di conoscenze amministrative e operative per perfezionare la comprensione dell'AI</li>
+                        <li>Operations & Administration in Svizzera e India</li>
+                        <li>Saggiatore Giurato di Metalli Preziosi (Certificazione Federale Svizzera)</li>
+                        <li>AI Prompt Designer & Evaluator (Mercor, DataAnnotation)</li>
+                        <li>Diploma Federale Svizzero in AI Business (in corso, 2026)</li>
+                        <li>Certificazioni da IBM, Google, Vanderbilt University</li>
                     </ul>
                 </div>
-
-                <div class="timeline-item current">
-                    <span class="timeline-date" data-lang="en">2025 – Present <span class="current-badge">CURRENT</span></span>
-                    <span class="timeline-date" data-lang="it">2025 – Presente <span class="current-badge">ATTUALE</span></span>
-                    <div class="company-name">DataAnnotation</div>
-                    <div class="job-location">Remote</div>
-                    <h4 data-lang="en">AI Content & Evaluation Specialist</h4>
-                    <h4 data-lang="it">Specialista in Contenuti e Valutazione AI</h4>
-                    <ul data-lang="en">
-                        <li>Write and refine prompts and responses to improve fluency and context</li>
-                        <li>Evaluate AI model outputs for accuracy, clarity, and naturalness across diverse topics</li>
-                        <li>Research and fact-check to ensure precise, high-quality AI responses</li>
-                    </ul>
-                    <ul data-lang="it">
-                        <li>Scrittura e perfezionamento di prompt e risposte per migliorare fluidità e contesto</li>
-                        <li>Valutazione degli output dei modelli AI per accuratezza, chiarezza e naturalezza su argomenti diversi</li>
-                        <li>Ricerca e verifica dei fatti per garantire risposte AI precise e di alta qualità</li>
-                    </ul>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="timeline-date">2022 – 2025</span>
-                    <div class="company-name">Hemplanet</div>
-                    <div class="job-location">Auroville, India</div>
-                    <h4 data-lang="en">Executive Director</h4>
-                    <h4 data-lang="it">Direttore Esecutivo</h4>
-                    <ul data-lang="en">
-                        <li>Oversaw full operations, finance, and business development for a sustainable brand</li>
-                        <li>Implemented digital systems to automate workflows</li>
-                        <li>Managed accounting, logistics, HR, and vendor relations, ensuring efficiency and compliance</li>
-                        <li>Scaled business operations, improving financial visibility and team coordination</li>
-                    </ul>
-                    <ul data-lang="it">
-                        <li>Supervisione di operazioni complete, finanza e sviluppo aziendale per un marchio sostenibile</li>
-                        <li>Implementazione di sistemi digitali per automatizzare i flussi di lavoro</li>
-                        <li>Gestione di contabilità, logistica, HR e relazioni con fornitori, garantendo efficienza e conformità</li>
-                        <li>Scalata delle operazioni aziendali, migliorando la visibilità finanziaria e il coordinamento del team</li>
-                    </ul>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="timeline-date">2020 – 2022</span>
-                    <div class="company-name">Gastronomica</div>
-                    <div class="job-location">Auroville, India</div>
-                    <h4 data-lang="en">Operations Manager</h4>
-                    <h4 data-lang="it">Responsabile Operazioni</h4>
-                    <ul data-lang="en">
-                        <li>Managed a pasta production facility with retail and B2B distribution</li>
-                        <li>Oversaw procurement, invoicing, accounting, and client communication</li>
-                        <li>Coordinated a team of up to 10 and optimized financial and operational flows</li>
-                    </ul>
-                    <ul data-lang="it">
-                        <li>Gestione di un'unità di produzione pasta con distribuzione retail e B2B</li>
-                        <li>Supervisione di approvvigionamento, fatturazione, contabilità e comunicazione con i clienti</li>
-                        <li>Coordinamento di un team fino a 10 persone e ottimizzazione dei flussi finanziari e operativi</li>
-                    </ul>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="timeline-date">2019 – 2020</span>
-                    <div class="company-name">Bread & Chocolate</div>
-                    <div class="job-location">Auroville, India</div>
-                    <h4 data-lang="en">Café Manager</h4>
-                    <h4 data-lang="it">Responsabile Caffetteria</h4>
-                    <ul data-lang="en">
-                        <li>Directed daily operations for a 25-person café/bakery serving 1,000+ weekly customers</li>
-                        <li>Supervised staff scheduling, inventory, and cash handling</li>
-                        <li>Improved workflow efficiency and service quality</li>
-                    </ul>
-                    <ul data-lang="it">
-                        <li>Direzione delle operazioni quotidiane di una caffetteria/panetteria con 25 dipendenti che serve oltre 1.000 clienti settimanali</li>
-                        <li>Supervisione della pianificazione del personale, inventario e gestione della cassa</li>
-                        <li>Miglioramento dell'efficienza del flusso di lavoro e della qualità del servizio</li>
-                    </ul>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="timeline-date">2018 – 2019</span>
-                    <div class="company-name">Solitude Farm</div>
-                    <div class="job-location">Auroville, India</div>
-                    <h4 data-lang="en">Farm & Café Operations Manager</h4>
-                    <h4 data-lang="it">Responsabile Operazioni Fattoria e Caffetteria</h4>
-                    <ul data-lang="en">
-                        <li>Managed daily operations, administration, and café</li>
-                        <li>Organized volunteers, events while promoting sustainable food education</li>
-                    </ul>
-                    <ul data-lang="it">
-                        <li>Gestione delle operazioni quotidiane, amministrazione e caffetteria</li>
-                        <li>Organizzazione di volontari ed eventi promuovendo l'educazione alimentare sostenibile</li>
-                    </ul>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="timeline-date">2011 – 2017</span>
-                    <div class="company-name">Ecometal SA</div>
-                    <div class="job-location">Mendrisio, Switzerland</div>
-                    <h4 data-lang="en">Sworn Precious Metal Assayer</h4>
-                    <h4 data-lang="it">Saggiatore Giurato di Metalli Preziosi</h4>
-                    <ul data-lang="en">
-                        <li>Performed high-precision analysis and compliance reporting under Swiss federal standards</li>
-                        <li>Managed documentation, QA, and internal reporting</li>
-                    </ul>
-                    <ul data-lang="it">
-                        <li>Esecuzione di analisi ad alta precisione e reportistica di conformità secondo gli standard federali svizzeri</li>
-                        <li>Gestione di documentazione, QA e reportistica interna</li>
-                    </ul>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="timeline-date">2007 – 2010</span>
-                    <div class="company-name">BPS Suisse</div>
-                    <div class="job-location">Lugano, Switzerland</div>
-                    <h4 data-lang="en">Bank Employee</h4>
-                    <h4 data-lang="it">Impiegato Bancario</h4>
-                    <ul data-lang="en">
-                        <li>Supported credit-department administration and payment flows</li>
-                        <li>Handled data entry, document control, and confidential records with accuracy</li>
-                    </ul>
-                    <ul data-lang="it">
-                        <li>Supporto all'amministrazione del dipartimento crediti e flussi di pagamento</li>
-                        <li>Gestione di inserimento dati, controllo documenti e registri riservati con precisione</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills">
-            <h2 data-lang="en">Skills</h2>
-            <h2 data-lang="it">Competenze</h2>
-            
-            <div class="skills-section">
-                <div class="skill-box">
-                    <h4 data-lang="en">Core Competencies</h4>
-                    <h4 data-lang="it">Competenze Principali</h4>
-                    <ul data-lang="en">
-                        <li>Business Administration</li>
-                        <li>Accounting & Invoicing</li>
-                        <li>Client Relations & Vendor Management</li>
-                        <li>HR Coordination & Team Management</li>
-                        <li>Document Management & Database Administration</li>
-                        <li>Compliance & Regulatory Reporting</li>
-                        <li>Process Optimization & Workflow Improvement</li>
-                        <li>Scheduling & Coordination</li>
-                        <li>Procurement & Budget Management</li>
-                    </ul>
-                    <ul data-lang="it">
-                        <li>Amministrazione Aziendale</li>
-                        <li>Contabilità e Fatturazione</li>
-                        <li>Relazioni con Clienti e Gestione Fornitori</li>
-                        <li>Coordinamento HR e Gestione Team</li>
-                        <li>Gestione Documenti e Amministrazione Database</li>
-                        <li>Conformità e Reporting Normativo</li>
-                        <li>Ottimizzazione Processi e Miglioramento Flussi di Lavoro</li>
-                        <li>Pianificazione e Coordinamento</li>
-                        <li>Approvvigionamento e Gestione Budget</li>
-                    </ul>
-                </div>
-
-                <div class="skill-box">
-                    <h4 data-lang="en">Technical Skills</h4>
-                    <h4 data-lang="it">Competenze Tecniche</h4>
-                    <ul>
-                        <li>Microsoft Office Suite (Excel - Advanced, Word, PowerPoint)</li>
-                        <li>Google Workspace (Drive, Sheets, Docs, Gmail)</li>
-                        <li data-lang="en">Business Software: Zoho Books, CRM Systems, ERP Systems, Square</li>
-                        <li data-lang="it">Software Aziendali: Zoho Books, Sistemi CRM, Sistemi ERP, Square</li>
-                        <li data-lang="en">Collaboration Tools: Notion, Wix, Canva</li>
-                        <li data-lang="it">Strumenti di Collaborazione: Notion, Wix, Canva</li>
-                        <li>AI & Automation: ChatGPT, Claude, Make.com, Zapier</li>
-                    </ul>
-                </div>
-
-                <div class="skill-box">
-                    <h4 data-lang="en">Additional Competencies</h4>
-                    <h4 data-lang="it">Competenze Aggiuntive</h4>
-                    <ul data-lang="en">
-                        <li>Problem-Solving</li>
-                        <li>Attention to Detail</li>
-                        <li>Time Management</li>
-                        <li>Adaptability</li>
-                        <li>Cross-Cultural Communication</li>
-                        <li>Client Service</li>
-                        <li>Conflict Resolution</li>
-                        <li>Critical Thinking</li>
-                    </ul>
-                    <ul data-lang="it">
-                        <li>Risoluzione Problemi</li>
-                        <li>Attenzione ai Dettagli</li>
-                        <li>Gestione del Tempo</li>
-                        <li>Adattabilità</li>
-                        <li>Comunicazione Interculturale</li>
-                        <li>Servizio Clienti</li>
-                        <li>Risoluzione Conflitti</li>
-                        <li>Pensiero Critico</li>
-                    </ul>
-                </div>
-
-                <div class="skill-box">
-                    <h4 data-lang="en">Languages</h4>
-                    <h4 data-lang="it">Lingue</h4>
-                    <ul data-lang="en">
-                        <li><strong>Italian</strong> - Native</li>
-                        <li><strong>English</strong> - Fluent</li>
-                        <li><strong>French</strong> - Intermediate (B1)</li>
-                        <li><strong>German</strong> - Basic (A2)</li>
-                    </ul>
-                    <ul data-lang="it">
-                        <li><strong>Italiano</strong> - Madrelingua</li>
-                        <li><strong>Inglese</strong> - Fluente</li>
-                        <li><strong>Francese</strong> - Intermedio (B1)</li>
-                        <li><strong>Tedesco</strong> - Base (A2)</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="education">
-            <h2 data-lang="en">Education & Certifications</h2>
-            <h2 data-lang="it">Formazione e Certificazioni</h2>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem;" data-lang="en">Education</h3>
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem;" data-lang="it">Formazione</h3>
-            
-            <div class="cert-grid">
-                <div class="cert-card">
-                    <div class="cert-org">Digital Strategies Academy</div>
-                    <div class="cert-title" data-lang="en">Business AI Specialist (Federal Diploma 2026)</div>
-                    <div class="cert-title" data-lang="it">Specialista AI Aziendale (Diploma Federale 2026)</div>
-                    <div class="cert-date" data-lang="en">Remote, 2025 – Present</div>
-                    <div class="cert-date" data-lang="it">Remoto, 2025 – Presente</div>
-                    <p style="margin-top: 0.5rem; font-size: 0.9rem;" data-lang="en">Preparation for Swiss Federal Diploma as Business AI Specialist</p>
-                    <p style="margin-top: 0.5rem; font-size: 0.9rem;" data-lang="it">Preparazione per il Diploma Federale Svizzero come Specialista AI Aziendale</p>
-                </div>
-
-                <div class="cert-card">
-                    <div class="cert-org" data-lang="en">Federal Office for the Control of Precious Metals (BCMP)</div>
-                    <div class="cert-org" data-lang="it">Ufficio Federale del Controllo dei Metalli Preziosi (BCMP)</div>
-                    <div class="cert-title" data-lang="en">Diploma as Certified Precious Metal Assayer</div>
-                    <div class="cert-title" data-lang="it">Diploma di Saggiatore Giurato di Metalli Preziosi</div>
-                    <div class="cert-date" data-lang="en">Switzerland, 2015</div>
-                    <div class="cert-date" data-lang="it">Svizzera, 2015</div>
-                </div>
-
-                <div class="cert-card">
-                    <div class="cert-org">SCC Bellinzona</div>
-                    <div class="cert-title" data-lang="en">Commercial High School Diploma</div>
-                    <div class="cert-title" data-lang="it">Diploma di Scuola Commerciale</div>
-                    <div class="cert-date" data-lang="en">Switzerland, 2007</div>
-                    <div class="cert-date" data-lang="it">Svizzera, 2007</div>
-                </div>
-            </div>
-
-            <h3 style="margin-top: 3rem; margin-bottom: 1rem;" data-lang="en">Certifications</h3>
-            <h3 style="margin-top: 3rem; margin-bottom: 1rem;" data-lang="it">Certificazioni</h3>
-            
-            <div class="cert-grid">
-                <div class="cert-card">
-                    <div class="cert-org">IBM</div>
-                    <div class="cert-title">AI Foundations for Business</div>
-                    <div class="cert-date" data-lang="en">June 2025</div>
-                    <div class="cert-date" data-lang="it">Giugno 2025</div>
-                    <p style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--text-light);">
-                        Credential: W7U5L4RTAK90
-                    </p>
-                    <a href="https://coursera.org/verify/specialization/W7U5L4RTAK90" class="cert-link" target="_blank" data-lang="en">View Certificate →</a>
-                    <a href="https://coursera.org/verify/specialization/W7U5L4RTAK90" class="cert-link" target="_blank" data-lang="it">Vedi Certificato →</a>
-                </div>
-
-                <div class="cert-card">
-                    <div class="cert-org">Vanderbilt University</div>
-                    <div class="cert-title">Agentic AI and AI Agents for Leaders Specialization</div>
-                    <div class="cert-date" data-lang="en">July 2025</div>
-                    <div class="cert-date" data-lang="it">Luglio 2025</div>
-                    <p style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--text-light);">
-                        Credential: W183YBN7NY0O
-                    </p>
-                    <a href="https://coursera.org/verify/specialization/W183YBN7NY0O" class="cert-link" target="_blank" data-lang="en">View Certificate →</a>
-                    <a href="https://coursera.org/verify/specialization/W183YBN7NY0O" class="cert-link" target="_blank" data-lang="it">Vedi Certificato →</a>
-                </div>
-
-                <div class="cert-card">
-                    <div class="cert-org">Google</div>
-                    <div class="cert-title">Google IT Support</div>
-                    <div class="cert-date" data-lang="en">May 2025</div>
-                    <div class="cert-date" data-lang="it">Maggio 2025</div>
-                    <p style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--text-light);">
-                        Credential: LHW6WQNARXN1
-                    </p>
-                    <a href="https://coursera.org/verify/professional-cert/LHW6WQNARXN1" class="cert-link" target="_blank" data-lang="en">View Certificate →</a>
-                    <a href="https://coursera.org/verify/professional-cert/LHW6WQNARXN1" class="cert-link" target="_blank" data-lang="it">Vedi Certificato →</a>
-                </div>
-
-                <div class="cert-card">
-                    <div class="cert-org">IBM</div>
-                    <div class="cert-title">Introduction to Cybersecurity Essentials</div>
-                    <div class="cert-date" data-lang="en">May 2025</div>
-                    <div class="cert-date" data-lang="it">Maggio 2025</div>
-                    <p style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--text-light);">
-                        Credential: DAECGFEAUJMR
-                    </p>
-                    <a href="https://coursera.org/verify/DAECGFEAUJMR" class="cert-link" target="_blank" data-lang="en">View Certificate →</a>
-                    <a href="https://coursera.org/verify/DAECGFEAUJMR" class="cert-link" target="_blank" data-lang="it">Vedi Certificato →</a>
-                </div>
-
-                <div class="cert-card">
-                    <div class="cert-org">Great Learning Academy</div>
-                    <div class="cert-title">Applications of AI</div>
-                    <div class="cert-date" data-lang="en">May 2025</div>
-                    <div class="cert-date" data-lang="it">Maggio 2025</div>
-                    <p style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--text-light);">
-                        Credential: YQNJEIYJ
-                    </p>
-                    <a href="https://www.mygreatlearning.com/certificate/YQNJEIYJ" class="cert-link" target="_blank" data-lang="en">View Certificate →</a>
-                    <a href="https://www.mygreatlearning.com/certificate/YQNJEIYJ" class="cert-link" target="_blank" data-lang="it">Vedi Certificato →</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2 data-lang="en">Get in Touch</h2>
-            <h2 data-lang="it">Contatti</h2>
-            
-            <p style="font-size: 1.125rem; margin-bottom: 2rem;" data-lang="en">
-                Available for office and remote positions in Switzerland, European Union, and international environments.
-            </p>
-            <p style="font-size: 1.125rem; margin-bottom: 2rem;" data-lang="it">
-                Disponibile per posizioni in ufficio e da remoto in Svizzera, Unione Europea e ambienti internazionali.
-            </p>
-            
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <strong>📧 Email:</strong>
-                    <a href="mailto:daviderota.tech@gmail.com">daviderota.tech@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <strong data-lang="en">📱 Phone:</strong>
-                    <strong data-lang="it">📱 Telefono:</strong>
-                    <a href="tel:+41783190106">+41 78 319 01 06</a>
-                </div>
-                <div class="contact-item">
-                    <strong>💼 LinkedIn:</strong>
-                    <a href="https://linkedin.com/in/daviderota-ai" target="_blank">linkedin.com/in/daviderota-ai</a>
-                </div>
-                
-                <div class="contact-item">
-                    <strong data-lang="en">📍 Location:</strong>
-                    <strong data-lang="it">📍 Posizione:</strong>
-                    <span data-lang="en">Riva San Vitale, Ticino, Switzerland</span>
-                    <span data-lang="it">Riva San Vitale, Ticino, Svizzera</span>
-                </div>
-                <div class="contact-item">
-                    <strong data-lang="en">✅ Availability:</strong>
-                    <strong data-lang="it">✅ Disponibilità:</strong>
-                    <span style="color: var(--success-color); font-weight: 600;" data-lang="en">Immediate</span>
-                    <span style="color: var(--success-color); font-weight: 600;" data-lang="it">Immediata</span>
-                </div>
-                <div class="contact-item">
-                    <strong data-lang="en">🌐 Website:</strong>
-                    <strong data-lang="it">🌐 Sito Web:</strong>
-                    <a href="https://daviderota-ai.github.io" target="_blank">daviderota-ai.github.io</a>
-                </div>
-            </div>
-
-            <div style="margin-top: 3rem; text-align: center;">
-                <a href="Davide_Rota_CV.pdf" class="btn btn-primary" download data-lang="en">Download Full CV (PDF)</a>
-                <a href="Davide_Rota_CV.pdf" class="btn btn-primary" download data-lang="it">Scarica CV Completo (PDF)</a>
             </div>
         </section>
     </div>
 
+    <section class="contact-section" id="contact">
+        <div class="contact-content">
+            <h2 data-lang="en">Get in Touch</h2>
+            <h2 data-lang="it">Contatti</h2>
+
+            <p data-lang="en">Running an SME and wondering if AI makes sense for you? Let's talk.</p>
+            <p data-lang="it">Gestisci una PMI e ti chiedi se l'AI ha senso per te? Parliamone.</p>
+
+            <div class="contact-links">
+                <a href="mailto:daviderota.tech@gmail.com">📧 daviderota.tech@gmail.com</a>
+                <a href="https://linkedin.com/in/daviderota-ai" target="_blank">💼 LinkedIn</a>
+                <a href="tel:+41783190106">📱 +41 78 319 01 06</a>
+            </div>
+
+            <p class="location-info">📍 Switzerland · 🌐 EN · IT · FR</p>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2025 Davide Rota. <span data-lang="en">All rights reserved.</span><span data-lang="it">Tutti i diritti riservati.</span></p>
-        <p style="margin-top: 0.5rem; font-size: 0.875rem; opacity: 0.8;" data-lang="en">
-            Administrative Manager | Operations & Business Support | AI Specialist in Training
-        </p>
-        <p style="margin-top: 0.5rem; font-size: 0.875rem; opacity: 0.8;" data-lang="it">
-            Responsabile Amministrativo | Operazioni e Supporto Aziendale | Specialista AI in Formazione
-        </p>
+        <p>© 2025 Davide Rota</p>
     </footer>
 
     <script>
@@ -1171,12 +608,11 @@
             const navLinks = document.getElementById('navLinks');
             const overlay = document.getElementById('mobileOverlay');
             const hamburger = document.getElementById('hamburger');
-            
+
             navLinks.classList.toggle('active');
             overlay.classList.toggle('active');
             hamburger.classList.toggle('active');
-            
-            // Prevent body scroll when menu is open
+
             if (navLinks.classList.contains('active')) {
                 document.body.style.overflow = 'hidden';
             } else {
@@ -1188,7 +624,7 @@
             const navLinks = document.getElementById('navLinks');
             const overlay = document.getElementById('mobileOverlay');
             const hamburger = document.getElementById('hamburger');
-            
+
             navLinks.classList.remove('active');
             overlay.classList.remove('active');
             hamburger.classList.remove('active');
@@ -1209,19 +645,6 @@
             }
         }
 
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const navLinks = document.getElementById('navLinks');
-            const hamburger = document.getElementById('hamburger');
-            const navContainer = document.querySelector('.nav-container');
-            
-            if (navLinks.classList.contains('active') && 
-                !navContainer.contains(event.target)) {
-                closeMenu();
-            }
-        });
-
-        // Close menu on escape key
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeMenu();
@@ -1244,26 +667,6 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
-                }
-            });
-        });
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            const sections = document.querySelectorAll('section');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
-                    link.classList.add('active');
                 }
             });
         });
